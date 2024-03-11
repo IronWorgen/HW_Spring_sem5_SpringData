@@ -74,13 +74,6 @@ class UserProjectServiceTest {
         verify(projectRepository).findProjectByIdIn(projectId);
     }
 
-//    @Test
-//    void addUserToProject() {
-//        UsersProject usersProject =  new UsersProject(1l, 1l);
-//        userProjectService.addUserToProject(1l,1l);
-//        verify(usersProjectRepository).save(usersProject);
-//
-//    }
 
     @Test
     void removeUserFromProject() {
