@@ -1,6 +1,8 @@
 package sem.controllers;
 
 
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.Metrics;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserProjectController {
     private final UserProjectService userProjectService;
+    private final Counter requestCounter = Metrics.counter("requestCounter");
 
 
     /**
@@ -34,6 +37,7 @@ public class UserProjectController {
     @GetMapping("/users/{projectId}")
     public ResponseEntity<List<User>> getUsersByProjectId(@PathVariable Long projectId) {
         List<User> users = userProjectService.getUsersByProjectId(projectId);
+        requestCounter.increment();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
