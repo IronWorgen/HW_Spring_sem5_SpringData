@@ -2,4 +2,4 @@
 
 Задание со звездочкой: UsersAndProjects
 
-# протестирован класс UserProjectService в проекте UsersAndProjects
+# задние выполнено для проекта UsersAndProjects. prometheus.yml в корне реопозитория 
